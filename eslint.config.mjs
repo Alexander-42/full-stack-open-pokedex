@@ -45,6 +45,6 @@ export default [
     },
   },
   {
-    ignores: ['dist/**', 'webpack.config.js', 'node_modules'],
+    ignores: ['dist/**', 'webpack.config.js', 'node_modules', 'playwright.config.js'],
   },
 ]

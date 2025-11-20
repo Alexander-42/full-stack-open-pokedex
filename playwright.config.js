@@ -9,6 +9,8 @@ import { defineConfig, devices } from '@playwright/test';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
+import 'dotenv';
+
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -31,6 +33,13 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    baseURL: 'http://localhost:8080',
+  },
+  webServer: {
+    command: 'npm start',   
+    url: 'http://localhost:8080',
+    timeout: 120 * 1000,
+    reuseExistingServer: !process.env.CI,
   },
 
   /* Configure projects for major browsers */
